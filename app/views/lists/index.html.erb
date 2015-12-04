@@ -1,2 +1,22 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<!-- <h1>Lists#index</h1>
+<p>Find me in app/views/lists/index.html.erb</p> -->
+
+<h1>Lists</h1>
+<br />
+<% if @lists.any? %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li>
+        <%= link_to "List: #{list.name}", list_path(list) %>
+        <%= button_to "Edit List", edit_list_path(list), method: :get %>
+        <%= button_to "Delete", list_path(list), method: :delete,
+        data: {confirm: "Really delete this item?"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>No lists to show.</h3>
+<% end %>
+<br />
+<%= link_to "Create New List", new_list_path %>
+<hr />
