@@ -1,2 +1,18 @@
 <h1>Items#show</h1>
 <p>Find me in app/views/items/show.html.erb</p>
+<!-- this will show all items for all lists, which you don't want -->
+<h1>Items</h1>
+<br />
+ <% @item.each do %>
+   <label>Item Name:</label>
+   <p><%= @item.name %></p>
+
+   <label>Description:</label>
+   <p><%= @item.description %></p>
+
+   <label>Priority:</label>
+   <p><%= @item.priority %></p>
+
+   <label>Completed:</label>
+   <p><%= @item.completed %></p>
+ <% end %>

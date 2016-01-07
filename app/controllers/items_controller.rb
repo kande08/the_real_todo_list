@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    # @list = List.find(params[:id])
     @item = Item.new
   end
 
@@ -17,6 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    # @list = List.find(params[:id])
     @item = Item.find(params[:id])
   end
 
@@ -34,12 +36,12 @@ class ItemsController < ApplicationController
     if item.destroy
       redirect_to root_path
     else
-      redirect_to item_path(item) 
+      redirect_to item_path(item)
     end
   end
 
   private
     def item_params
-      params.require(:item).permit(:name, :description, :priority, :completed)
+      params.require(:item).permit(:name, :description, :priority, :completed, :list_id)
     end
 end

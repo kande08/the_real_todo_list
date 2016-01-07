@@ -5,7 +5,9 @@
 <br />
 <h3><%= @list.name %></h3>
 <br />
-<%= button_to "Edit List", edit_list_path(@list), method: :get %>
+<%= button_to "Edit List Name", edit_list_path(@list), method: :get %>
 <%= button_to "Delete", list_path(@list), method: :delete,
 data: {confirm: "Really delete this item?"} %>
+<br />
+<%= link_to "Create New Item", new_item_path('id': @list.id) %>
 <hr />
